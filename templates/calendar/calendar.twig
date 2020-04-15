@@ -34,6 +34,7 @@
 <body>
   <a class="Konst" href="http://localhost:8080/listConsultation">Konsultacje</a>
   <a class="Konst" style="top: 70px"href="http://localhost:8080/message">Wiadomości</a>
+  <a class="Konst" style="top: 120px" href="/">{{ __('Logout') }}</a><br>
   <div class="content">
     <div class="calendar-container">
       <div class="calendar">
@@ -76,21 +77,31 @@
             </tbody>
           </table>
         </div>
-        <button class="button" id="add-button">Add Event</button>
+        <button class="button" id="add-button">Dodaj</button>
       </div>
     </div>
     <div class="events-container">
     </div>
     <div class="dialog" id="dialog">
-      <h2 class="dialog-header"> Add New Event </h2>
-      <form class="form" id="form">
+      <h2 class="dialog-header"> Dodaj wydarzenie </h2>
+      <form class="form" id="form" method="POST">
         <div class="form-container" align="center">
-          <label class="form-label" id="valueFromMyButton" for="name">Event name</label>
-          <input class="input" type="text" id="name" maxlength="36">
-          <label class="form-label" id="valueFromMyButton" for="count">Number of people to invite</label>
-          <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">
-          <input type="button" value="Cancel" class="button" id="cancel-button">
-          <input type="button" value="OK" class="button" id="ok-button">
+          <label class="form-label" id="valueFromMyButton" for="name">Imię</label>
+          <input class="input" type="text" id="name" maxlength="30">
+          <label class="form-label" id="valueFromMyButton" for="name">Nazwisko</label>
+          <input class="input" type="text" id="lastName" maxlength="30">
+          <!--           <label class="form-label" id="valueFromMyButton" for="count">Number of people to invite</label>
+          <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">-->
+          <label class="form-label" id="valueFromMyButton" for="email">Email</label>
+          <input class="input" type="text" id="email" maxlength="30">
+          <label class="form-label" id="valueFromMyButton" for="subject">Przedmiot</label>
+          <input class="input" type="text" id="subject" maxlength="30">
+          <label class="form-label" id="valueFromMyButton" for="time">Czas</label>
+          <input class="input" type="time" id="time">
+
+          <input type="button" value="Anuluj" class="button" id="cancel-button">
+
+          <button id="ok-button" class="button" type="submit">{{ __('Zapisz') }}</button>
         </div>
       </form>
     </div>

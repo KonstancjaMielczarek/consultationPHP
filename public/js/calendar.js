@@ -150,17 +150,18 @@ function new_event(event) {
     }, function () {
         var date = event.data.date;
         var name = $("#name").val().trim();
-        var count = parseInt($("#count").val().trim());
+        var lastName = $("#lastName").val().trim();
+        var email = $("#email").val().trim();
+        var subject = $("#subject").val().trim();
+        var time = $("#time").val().trim();
         var day = parseInt($(".active-date").html());
         // Basic form validation
         if (name.length === 0) {
             $("#name").addClass("error-input");
-        } else if (isNaN(count)) {
-            $("#count").addClass("error-input");
-        } else {
+        }else {
             $("#dialog").hide(250);
             console.log("new event");
-            new_event_json(name, count, date, day);
+            new_event_json(name, lastName, email, subject, time, date, day);
             date.setDate(day);
             init_calendar(date);
         }
@@ -168,10 +169,13 @@ function new_event(event) {
 }
 
 // Adds a json event to event_data
-function new_event_json(name, count, date, day) {
+function new_event_json(name,lastName, email, subject, time, date, day) {
     var event = {
         "occasion": name,
-        "invited_count": count,
+        "lastName": lastName,
+        "email": email,
+        "subject": subject,
+        "time": time,
         "year": date.getFullYear(),
         "month": date.getMonth() + 1,
         "day": day
@@ -188,7 +192,7 @@ function show_events(events, month, day) {
     // If there are no events for this date, notify the user
     if (events.length === 0) {
         var event_card = $("<div class='event-card'></div>");
-        var event_name = $("<div class='event-name'>There are no events planned for " + month + " " + day + ".</div>");
+        var event_name = $("<div class='event-name'>Brak wydarzeń. " + month + " " + day + ".</div>");
         $(event_card).css({
             "border-left": "10px solid #FF1744"
         });
@@ -198,15 +202,19 @@ function show_events(events, month, day) {
         // Go through and add each event as a card to the events container
         for (var i = 0; i < events.length; i++) {
             var event_card = $("<div class='event-card'></div>");
-            var event_name = $("<div class='event-name'>" + events[i]["occasion"] + ":</div>");
-            var event_count = $("<div class='event-count'>" + events[i]["invited_count"] + " Invited</div>");
+            var event_name = $("<div class='event-name' style='width: 100%; display: inline-block'>Imię:" + events[i]["occasion"] + "</div>");
+            var event_lastName = $("<div class='event-name' style='width: 100%; display: inline-block'> Nazwisko:" + events[i]["lastName"] + "</div>");
+            var event_email = $("<div class='event-name' style='width: 100%; display: inline-block'> Email:" + events[i]["email"] + "</div>");
+            var event_subject = $("<div class='event-name' style='width: 100%; display: inline-block'> Przedmiot:" + events[i]["subject"] + "</div>");
+            var event_time = $("<div class='event-name' style='width: 100%; display: inline-block'> Czas:" + events[i]["time"] + "</div>");
+            var event_status = $("<div class='event-name' style='width: 100%; display: inline-block'> Status: oczekiwanie</div>");
             if (events[i]["cancelled"] === true) {
                 $(event_card).css({
                     "border-left": "10px solid #FF1744"
                 });
                 event_count = $("<div class='event-cancelled'>Cancelled</div>");
             }
-            $(event_card).append(event_name).append(event_count);
+            $(event_card).append(event_name).append(event_lastName).append(event_email).append(event_subject).append(event_status).append(event_time);
             $(".events-container").append(event_card);
         }
     }
@@ -230,6 +238,7 @@ function check_events(day, month, year) {
 var event_data = {
     "events": [{
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -238,6 +247,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -246,6 +256,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -254,6 +265,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -261,6 +273,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -269,6 +282,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -276,6 +290,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -284,6 +299,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -291,6 +307,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -299,6 +316,7 @@ var event_data = {
         },
         {
             "occasion": " Repeated Test Event ",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
@@ -306,6 +324,7 @@ var event_data = {
         },
         {
             "occasion": " Test Event",
+            "lastName": "Nazwisko",
             "invited_count": 120,
             "year": 2017,
             "month": 5,
