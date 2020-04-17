@@ -37,11 +37,11 @@ class AppointmentGeneratorRepository implements RepositoryInterface
     public function insertAppointment(AppointmentCreatorData $appointment): int
     {
         $row = [
-            'first_name' => $appointment->firstName,
-            'last_name' => $appointment->lastName,
+            'firstName' => $appointment->firstName,
+            'lastName' => $appointment->lastName,
             'email' => $appointment->email,
             'subject' => $appointment->subject,
-            'date' => $appointment->date,
+            //'date' => $appointment->date,
             'time' => $appointment->time,
         ];
 

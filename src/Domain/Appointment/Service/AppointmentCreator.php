@@ -16,12 +16,12 @@ use Selective\Validation\Exception\ValidationException;
 final class AppointmentCreator implements ServiceInterface
 {
     /**
-     * @var UserGeneratorRepository
+     * @var AppointmentGeneratorRepository
      */
     private $repository;
 
     /**
-     * @var UserValidator
+     * @var AppointmentValidator
      */
     protected $appointmentValidator;
 
@@ -30,11 +30,13 @@ final class AppointmentCreator implements ServiceInterface
      */
     private $logger;
 
+    private $twig;
+
     /**
      * The constructor.
      *
-     * @param UserGeneratorRepository $repository The repository
-     * @param UserValidator $userValidator The user validator
+     * @param AppointmentGeneratorRepository $repository The repository
+     * @param AppointmentValidator $appointmentValidator The user validator
      * @param LoggerFactory $loggerFactory The logger factory
      */
     public function __construct(
@@ -52,7 +54,7 @@ final class AppointmentCreator implements ServiceInterface
     /**
      * Create a new user.
      *
-     * @param UserCreatorData $user The user data
+     * @param AppointmentCreatorData $user The user data
      *
      * @throws ValidationException
      *

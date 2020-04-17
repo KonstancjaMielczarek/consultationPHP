@@ -6,6 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
 
+
 /**
  * Action.
  */
@@ -24,6 +25,7 @@ final class CalendarAction
     public function __construct(Twig $twig)
     {
         $this->twig = $twig;
+
     }
 
     /**

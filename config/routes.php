@@ -27,7 +27,7 @@ return function (App $app) {
     })->add(UserAuthMiddleware::class);
 
     $app->get('/calendar', \App\Action\Calendar\CalendarAction::class)->setName('calendar');
-    $app->post('/calendar', \App\Action\Calendar\CalendarSubmitAction::class);
+    $app->post('/calendar', \App\Action\Calendar\CalendarCreateAction::class);
 
     $app->get('/listConsultation', \App\Action\ListCons\ListConsAction::class)->setName('listConsultation');
     $app->get('/message', \App\Action\Message\MessageAction::class)->setName('message');

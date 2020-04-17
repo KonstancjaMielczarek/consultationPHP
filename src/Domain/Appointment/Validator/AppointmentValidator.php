@@ -22,20 +22,20 @@ final class AppointmentValidator
         $validation = new ValidationResult();
 
         if (empty($appointment->firstname)) {
-            $validation->addError('firstname', __('Input required'));
+            $validation->addError('firstName', __('Input required'));
         }
 
         if (empty($appointment->lastname)) {
-            $validation->addError('lastname', __('Input required'));
+            $validation->addError('lastName', __('Input required'));
         }
 
         if (empty($appointment->subject)) {
             $validation->addError('subject', __('Input required'));
         }
 
-        if (empty($user->email)) {
+        if (empty($appointment->email)) {
             $validation->addError('email', __('Input required'));
-        } elseif (filter_var($user->email, FILTER_VALIDATE_EMAIL) === false) {
+        } elseif (filter_var($appointment->email, FILTER_VALIDATE_EMAIL) === false) {
             $validation->addError('email', __('Invalid email address'));
         }
 

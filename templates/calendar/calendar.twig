@@ -84,20 +84,19 @@
     </div>
     <div class="dialog" id="dialog">
       <h2 class="dialog-header"> Dodaj wydarzenie </h2>
-      <form class="form" id="form" method="POST">
+      <form class="form" id="form" method="POST" action="/calendar">
         <div class="form-container" align="center">
           <label class="form-label" id="valueFromMyButton" for="name">Imię</label>
-          <input class="input" type="text" id="name" maxlength="30">
+          <input class="input" type="text" name="firstName" value="<?php echo $firstName; ?>" id="name" maxlength="30">
           <label class="form-label" id="valueFromMyButton" for="name">Nazwisko</label>
-          <input class="input" type="text" id="lastName" maxlength="30">
-          <!--           <label class="form-label" id="valueFromMyButton" for="count">Number of people to invite</label>
-          <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">-->
+          <input class="input" type="text" name="lastName" id="lastName" maxlength="30">
           <label class="form-label" id="valueFromMyButton" for="email">Email</label>
-          <input class="input" type="text" id="email" maxlength="30">
+          <input class="input" type="text" name="email" id="email" maxlength="30">
           <label class="form-label" id="valueFromMyButton" for="subject">Przedmiot</label>
-          <input class="input" type="text" id="subject" maxlength="30">
+          <input class="input" type="text" name="subject" id="subject" maxlength="30">
           <label class="form-label" id="valueFromMyButton" for="time">Czas</label>
-          <input class="input" type="time" id="time">
+          <input class="input" type="time" name="time" id="time">
+
 
           <input type="button" value="Anuluj" class="button" id="cancel-button">
 

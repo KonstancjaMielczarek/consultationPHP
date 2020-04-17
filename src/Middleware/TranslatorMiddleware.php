@@ -61,7 +61,7 @@ final class TranslatorMiddleware implements MiddlewareInterface
         $user = $this->session->get('user');
 
         // User locale or default locale
-        $locale = $user ? $user->locale : 'en_US';
+        $locale =  'en_US';
 
         // Set language
         $domain = 'messages';

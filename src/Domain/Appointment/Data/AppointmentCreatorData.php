@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Apointment;
+namespace App\Domain\Appointment;
 
 use App\Interfaces\DataInterface;
 use Selective\ArrayReader\ArrayReader;
@@ -8,7 +8,7 @@ use Selective\ArrayReader\ArrayReader;
 /**
  * Data object.
  */
-final class ApointmentCreatorData implements DataInterface
+final class AppointmentCreatorData implements DataInterface
 {
     /** @var int|null */
     public $id_appointment;
@@ -31,6 +31,8 @@ final class ApointmentCreatorData implements DataInterface
     /** @var date|null */
     public $date;
 
+    
+
     /**
      * The constructor.
      *
@@ -40,12 +42,13 @@ final class ApointmentCreatorData implements DataInterface
     {
         $data = new ArrayReader($array);
 
-        $this->id_appointment = $data->findInt('id_appointment');
-        $this->firstName = $data->findString('first_name');
-        $this->lastName = $data->findString('last_name');
+        $this->id = $data->findInt('id_appointment');
+        $this->firstName = $data->findString('firstName');
+        $this->lastName = $data->findString('lastName');
         $this->email = $data->findString('email');
         $this->subject = $data->findString('subject');
-        $this->time = $data->findTime('time');
-        $this->date = $data->findDate('date');
+        $this->time = $data->findString('time');
+        //$this->date = $data->findDate('date');
+        //status
     }
 }
