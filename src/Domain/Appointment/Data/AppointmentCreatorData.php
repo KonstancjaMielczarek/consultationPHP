@@ -31,6 +31,9 @@ final class AppointmentCreatorData implements DataInterface
     /** @var date|null */
     public $date;
 
+    /** @var status|null */
+    public $status;
+
     
 
     /**
@@ -48,7 +51,6 @@ final class AppointmentCreatorData implements DataInterface
         $this->email = $data->findString('email');
         $this->subject = $data->findString('subject');
         $this->time = $data->findString('time');
-        //$this->date = $data->findDate('date');
-        //status
+
     }
 }

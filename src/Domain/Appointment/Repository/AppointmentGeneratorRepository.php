@@ -43,6 +43,9 @@ class AppointmentGeneratorRepository implements RepositoryInterface
             'subject' => $appointment->subject,
             //'date' => $appointment->date,
             'time' => $appointment->time,
+            'date' =>"2019-12-11",
+            'status' => "oczekiwanie",
+
         ];
 
         return (int)$this->queryFactory->newInsert(TableName::APPOINTMENT, $row)->execute()->lastInsertId();
