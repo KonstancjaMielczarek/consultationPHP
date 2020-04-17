@@ -26,10 +26,15 @@ return function (App $app) {
         $group->post('/datatable', \App\Action\User\UserListDataTableAction::class)->setName('user-datatable');
     })->add(UserAuthMiddleware::class);
 
+    $app->group('/listConsultation', function (RouteCollectorProxy $group) {
+        $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listConsultation');
+        $group->post('/datatable', \App\Action\ListCons\ListConsDataTableAction::class)->setName('user-datatable');
+    });
+
     $app->get('/calendar', \App\Action\Calendar\CalendarAction::class)->setName('calendar');
     $app->post('/calendar', \App\Action\Calendar\CalendarCreateAction::class);
 
-    $app->get('/listConsultation', \App\Action\ListCons\ListConsAction::class)->setName('listConsultation');
+    //$app->get('/listConsultation', \App\Action\ListCons\ListConsAction::class)->setName('listConsultation');
     $app->get('/message', \App\Action\Message\MessageAction::class)->setName('message');
 
 };
