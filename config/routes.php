@@ -29,7 +29,7 @@ return function (App $app) {
     $app->group('/listConsultation', function (RouteCollectorProxy $group) {
         $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listConsultation');
         $group->post('/datatable', \App\Action\ListCons\ListConsDataTableAction::class)->setName('user-datatable');
-    });
+    })->add(UserAuthMiddleware::class);
 
     $app->get('/calendar', \App\Action\Calendar\CalendarAction::class)->setName('calendar');
     $app->post('/calendar', \App\Action\Calendar\CalendarCreateAction::class);
