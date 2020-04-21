@@ -44,13 +44,20 @@ final class AppointmentCreatorData implements DataInterface
     public function __construct(array $array = [])
     {
         $data = new ArrayReader($array);
-
-        $this->id = $data->findInt('id_appointment');
-        $this->firstName = $data->findString('firstName');
-        $this->lastName = $data->findString('lastName');
-        $this->email = $data->findString('email');
-        $this->subject = $data->findString('subject');
-        $this->time = $data->findString('time');
+        //$this->id_Appointment = $data->find('id_appointment');//
+        $this->firstName = $data->find('firstName');
+        $this->lastName = $data->find('lastName');
+        $this->email = $data->find('email');
+        $this->subject = $data->find('subject');
+        $this->time = $data->find('time');//
+        //date, status
+        /*
+        $this->id_Appointment = 2;//
+        $this->firstName = "Tomek";
+        $this->lastName = "Nowak";
+        $this->email = "kofds@op.pl";
+        $this->subject = "pis";
+        $this->time = "09:02:01";*/
 
     }
 }

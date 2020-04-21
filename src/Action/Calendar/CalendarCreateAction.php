@@ -49,13 +49,16 @@ final class CalendarCreateAction
     {
         // Collect input from the HTTP request
         $appointmentData = new AppointmentCreatorData((array)$request->getParsedBody());
+        //echo $appointmentData;
 
         // Invoke the Domain with inputs and retain the result
         $appointmentId = $this->appointmentCreator->createAppointment($appointmentData);
+
 
         // Build the HTTP response
         return $this->responder->encodeJson($response, [
             'id_appointment' => $appointmentId,
         ]);
+
     }
 }

@@ -40,8 +40,8 @@ final class AppointmentCreator implements ServiceInterface
      * @param LoggerFactory $loggerFactory The logger factory
      */
     public function __construct(
-        UserGeneratorRepository $repository,
-        UserValidator $appointmentValidator,
+        AppointmentGeneratorRepository $repository,
+        AppointmentValidator $appointmentValidator,
         LoggerFactory $loggerFactory
     ) {
         $this->repository = $repository;
@@ -62,6 +62,7 @@ final class AppointmentCreator implements ServiceInterface
      */
     public function createAppointment(AppointmentCreatorData $appointment): int
     {
+        /*
         // Validation
         $validation = $this->appointmentValidator->validateAppointment($appointment);
 
@@ -69,7 +70,7 @@ final class AppointmentCreator implements ServiceInterface
             $validation->setMessage(__('Please check your input'));
 
             throw new ValidationException($validation);
-        }
+        }*/
 
         // Insert user
         $appointmentId = $this->repository->insertAppointment($appointment);

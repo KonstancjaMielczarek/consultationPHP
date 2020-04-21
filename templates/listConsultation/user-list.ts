@@ -13,7 +13,7 @@ export class UserList {
                 //  'url': __('js/datatable-english.json')
             },
             'ajax': {
-                'url': 'users/datatable',
+                'url': 'listConsultation/datatable',
                 'type': 'POST'
             },
             'columns': [

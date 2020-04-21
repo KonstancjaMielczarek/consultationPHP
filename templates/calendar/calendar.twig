@@ -87,15 +87,15 @@
       <form class="form" id="form" method="POST" action="C:\Users\S\Documents\consultationPHP\src\Action\Calendar\CalendarCreateAction.php">
         <div class="form-container" align="center">
           <label class="form-label" id="valueFromMyButton" for="name">Imię</label>
-          <input class="input" type="text" name="firstName" value="<?php echo $firstName; ?>" id="name" maxlength="30">
+          <input class="input" type="text" name="firstName" placeholder="{{ __('firstName') }}" id="name" maxlength="30">
           <label class="form-label" id="valueFromMyButton" for="name">Nazwisko</label>
-          <input class="input" type="text" name="lastName" id="lastName" maxlength="30">
+          <input class="input" type="text" name="lastName" id="lastName" placeholder="{{ __('lastName') }}" maxlength="30">
           <label class="form-label" id="valueFromMyButton" for="email">Email</label>
-          <input class="input" type="text" name="email" id="email" maxlength="30">
+          <input class="input" type="text" name="email" id="email" maxlength="30" placeholder="{{ __('email') }}">
           <label class="form-label" id="valueFromMyButton" for="subject">Przedmiot</label>
-          <input class="input" type="text" name="subject" id="subject" maxlength="30">
+          <input class="input" type="text" name="subject" id="subject" maxlength="30" placeholder="{{ __('subject') }}">
           <label class="form-label" id="valueFromMyButton" for="time">Czas</label>
-          <input class="input" type="time" name="time" id="time">
+          <input class="input" type="time" name="time" id="time" placeholder="{{ __('time') }}">
 
 
           <input type="button" value="Anuluj" class="button" id="cancel-button">

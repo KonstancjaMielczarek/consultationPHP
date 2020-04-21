@@ -27,7 +27,7 @@ return function (App $app) {
     })->add(UserAuthMiddleware::class);
 
     $app->group('/listConsultation', function (RouteCollectorProxy $group) {
-        $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listConsultation');
+        $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('user-list');
         $group->post('/datatable', \App\Action\ListCons\ListConsDataTableAction::class)->setName('user-datatable');
     })->add(UserAuthMiddleware::class);
 

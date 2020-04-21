@@ -20,7 +20,7 @@ final class ListConsDataTableAction
     /**
      * @var ListConstDataTable
      */
-    private $ListConsDataTable;
+    private $listConsDataTable;
 
     /**
      * The constructor.

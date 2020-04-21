@@ -3,10 +3,12 @@
 {% block css %}
     {% webpack_entry_css 'layout/datatables' %}
 
+
 {% endblock %}
 
 {% block js %}
     {% webpack_entry_js 'layout/datatables' %}
+
 
 {% endblock %}
 
@@ -28,13 +30,13 @@
                        class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed">
                     <thead>
                     <tr>
-                        <th>{{ __('Imię') }}</th>
-                        <th>{{ __('Nazwisko') }}</th>
-                        <th>{{ __('Email') }}</th>
-                        <th>{{ __('Przedmiot') }}</th>
-                        <th>{{ __('Status') }}</th>
-                        <th>{{ __('Data') }}</th>
-                        <th>{{ __('Czas') }}</th>
+                        <th>{{ __('firstName') }}</th>
+                        <th>{{ __('lastName') }}</th>
+                        <th>{{ __('email') }}</th>
+                        <th>{{ __('subject') }}</th>
+                        <th>{{ __('status') }}</th>
+                        <th>{{ __('date') }}</th>
+                        <th>{{ __('time') }}</th>
                     </tr>
                     <tfoot></tfoot>
                 </table>

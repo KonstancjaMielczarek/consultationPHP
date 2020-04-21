@@ -36,7 +36,9 @@ class AppointmentGeneratorRepository implements RepositoryInterface
      */
     public function insertAppointment(AppointmentCreatorData $appointment): int
     {
+        
         $row = [
+            //'id_appointment'  => $appointment->id_appointment,
             'firstName' => $appointment->firstName,
             'lastName' => $appointment->lastName,
             'email' => $appointment->email,
@@ -47,7 +49,20 @@ class AppointmentGeneratorRepository implements RepositoryInterface
             'status' => "oczekiwanie",
 
         ];
+/*
+        $row = [
+            
+            'firstName' => "Andrzej",
+            'lastName' => "Łuszcz",
+            'email' => "jdf@op.pl",
+            'subject' => "pis",
+            //'date' => $appointment->date,
+            'time' => "09:10:00s",
+            'date' =>"2019-12-11",
+            'status' => "oczekiwanie",
 
-        return (int)$this->queryFactory->newInsert(TableName::APPOINTMENT, $row)->execute()->lastInsertId();
+        ];*/
+
+        return (int)$this->queryFactory->newInsert(TableName::APPOINTMENT, $row)->execute();
     }
 }
