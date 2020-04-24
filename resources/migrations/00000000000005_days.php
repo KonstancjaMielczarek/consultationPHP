@@ -27,7 +27,7 @@ class Days extends AbstractMigration
             'id_day' => 2,
             'day_name'=>'piątek',
             'start_cons'=> date('11:00:00'),
-            'end_cons'=> date('13:00:00'),
+            'end_cons'=> date('12:00:00'),
             'id_owner2_FK'=> 1,
         ];
         $this->table('day')->insert($rows2)->save();

@@ -50,7 +50,7 @@ $this->table('day', [
                     'after' => 'end_cons',
                 ])
                 ->addForeignKey('id_owner2_FK','users','id_user',
-                ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_user_FK2'])
+                ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_user2_FK'])
                 ->create();
     }
 }

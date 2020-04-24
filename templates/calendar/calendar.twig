@@ -33,7 +33,7 @@
         </select>
         <input type="submit" value="Wyświetl"/>
       </form>
-      <table>
+      <table class='schedule'>
         <tr>
           <th class='tableTime'></th>
           <th>Poniedziałek</th>
@@ -41,46 +41,6 @@
           <th>Środa</th>
           <th>Czwartek</th>
           <th>Piątek</th>
-        </tr>
-        <tr>
-          <td class='tableTime'>8-9</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class='tableTime'>9-10</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class='tableTime'>10-11</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class='tableTime'>12-13</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class='tableTime'>13-14</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
         </tr>
       </table>
     </section>
@@ -92,13 +52,15 @@
     <section class='addConsultation'>
       <form method="POST">
         <label class="form-label" id="valueFromMyButton" for="name">Imię</label>
-        <input class="input" type="text" name="name" placeholder="{{ __('surname') }}" id="name" maxlength="30" />
+        <input class="input" type="text" name="name" placeholder="{{ __('name') }}" id="name" maxlength="30" />
         <label class="form-label" id="valueFromMyButton" for="surname">Nazwisko</label>
           <input class="input" type="text" name="surname" id="surname" placeholder="{{ __('surname') }}" maxlength="30" /> 
           <label class="form-label" id="valueFromMyButton" for="email">Email</label>
           <input class="input" type="text" name="email" id="email" maxlength="30" placeholder="{{ __('email') }}" />
           <label class="form-label" id="valueFromMyButton" for="subject">Przedmiot</label>
           <input class="input" type="text" name="subject" id="subject" maxlength="30" placeholder="{{ __('subject') }}" />
+          <label class="form-label" id="valueFromMyButton" for="date">Dzień konsultacji</label>
+          <input class="input" type="date" name="date" id="date" placeholder="{{ __('date') }}" />
           <label class="form-label" id="valueFromMyButton" for="time">Czas zaczęcia konsultacji</label>
           <input class="input" type="time" name="start_hour" id="time" placeholder="{{ __('start_hour') }}" />
           <label class="form-label" id="valueFromMyButton" for="end_hour">Czas końca konsultacji</label>
@@ -107,6 +69,7 @@
       </form>
     </section>
   </main>
+  <script src="js/jquery-3.2.1.min.js"></script>
   <script src='js/calendar.js'></script>
 </body>
 

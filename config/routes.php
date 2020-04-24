@@ -26,16 +26,20 @@ return function (App $app) {
     //     $group->post('/datatable', \App\Action\User\UserListDataTableAction::class)->setName('user-datatable');
     // })->add(UserAuthMiddleware::class);
 
-    $app->group('/listConsultation', function (RouteCollectorProxy $group) {
-         $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
-         $group->post('/datatable', \App\Action\ListCons\ListConsDataTableAction::class)->setName('user-datatable');
-     });
+    $app->get('/listConsultation', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
+    $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);
+
+    // $app->group('/listConsultation', function (RouteCollectorProxy $group) {
+    //      $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
+    //      $group->post('/datatable', \App\Action\ListCons\ListConsDataTableAction::class)->setName('user-datatable');
+    //  });
 
     // $app->get('/calendar', \App\Action\Calendar\CalendarAction::class)->setName('calendar');
     // $app->post('/calendar', \App\Action\Calendar\CalendarCreateAction::class);
 
     $app->get('/calendar', \App\Action\Calendar2\ConsCreateAction::class)->setName('calendar');
-    $app->post('/calendar', \App\Action\Calendar2\ConsSubmitAction::class);
+    $app->post('/calendar', \App\Action\Calendar2\CalendarDateTableAction::class);
+    //$app->post('/calendar', \App\Action\Calendar2\ConsSubmitAction::class);
 
     
 

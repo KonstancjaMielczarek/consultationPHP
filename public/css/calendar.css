@@ -63,8 +63,8 @@ main {
 }
 
 main .weeks{
-    height: 90%;
-    width: 580px;
+    height: 93%;
+    width: 620px;
     display: flex;
     margin-top: 40px;
     padding: 15px 20px;
@@ -74,7 +74,7 @@ main .weeks{
 }
 
 main .weeks form{
-    margin: 10px 2px 15px;
+    margin: 0 2px 15px;
     display: flex;
     justify-content: space-around;
 }
@@ -95,7 +95,7 @@ main .weeks form input{
     font-weight: bold;
     color: #fff;
     letter-spacing: 1.5px;
-    background-color: rgba(62, 56, 242);
+    background-color: rgba(62, 56, 242, 0.9);
     cursor: pointer;
     outline: 0;
 }
@@ -118,7 +118,7 @@ main .weeks table td, main .weeks table th{
 
 
 main .weeks table .tableTime{
-    width: 70px;
+    width: 120px;
 }
 
 main .info{

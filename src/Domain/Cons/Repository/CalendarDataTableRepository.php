@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ListCons\Repository;
+namespace App\Domain\Cons\Repository;
 
 use App\Factory\QueryFactory;
 use App\Repository\DataTableRepository;
@@ -9,7 +9,7 @@ use App\Repository\RepositoryInterface;
 /**
  * Repository.
  */
-class ListConsDataTableRepository implements RepositoryInterface
+class CalendarDataTableRepository implements RepositoryInterface
 {
     /**
      * @var QueryFactory
@@ -42,7 +42,12 @@ class ListConsDataTableRepository implements RepositoryInterface
      */
     public function getTableData(array $params): array
     {
-        $query = $this->queryFactory->newSelect('consultation')->select('*');
+        $query = $this->queryFactory->newSelect('consultation');
+        $query->select(['date', 'start_hour', 'end_hour','d.day_name', 'd.start_cons', 'd.end_cons',]);
+        $query->join(['d'=> [
+            'table' => 'day',
+            'condition' => 'd.id_day = id_day_FK',
+        ]]);
 
         return $this->dataTable->load($query, $params);
     }

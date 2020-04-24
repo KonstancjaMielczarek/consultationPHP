@@ -27,6 +27,7 @@ class Cons extends AbstractMigration
             'surname'=>'Luszcz',
             'email'=>'andrzej.luszcz@gmail.com',
             'id_user_FK'=> 1,
+            'id_day_FK'=> 1,
         ];
         $this->table('consultation')->insert($rows1)->save();
     }

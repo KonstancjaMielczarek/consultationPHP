@@ -79,10 +79,18 @@ $this->table('consultation', [
                 ->addColumn('id_user_FK', 'integer', [
                     'null' => false,
                     'limit' => MysqlAdapter::INT_REGULAR,
-                    'after' => 'email',
+                    'after' => 'status',
+                ])
+                ->addColumn('id_day_FK', 'integer', [
+                    'null' => false,
+                    'limit' => MysqlAdapter::INT_REGULAR,
+                    'after' => 'id_subject_FK',
                 ])
                 ->addForeignKey('id_user_FK','users','id_user',
                 ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_user_FK3'])
+                ->addForeignKey('id_day_FK','day','id_day',
+                ['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_day_FK'])
                 ->create();
+
     }
 }
