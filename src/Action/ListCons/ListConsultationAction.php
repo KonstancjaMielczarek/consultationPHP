@@ -2,6 +2,9 @@
 
 namespace App\Action\ListCons;
 
+//use App\Domain\Cons\Data\ConsCreatorData;
+use App\Domain\listCons\Service\ListConsDataTable;
+use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
@@ -16,14 +19,18 @@ final class ListConsultationAction
      */
     private $twig;
 
+    private $listCons;
+
     /**
      * The constructor.
      *
      * @param Twig $twig The twig engine
      */
-    public function __construct(Twig $twig)
+    public function __construct(Responder $responder, ListConsDataTable $listCons, Twig $twig)
     {
         $this->twig = $twig;
+        $this->listCons = $listCons;
+        $this->responder = $responder;
     }
 
     /**
@@ -36,6 +43,6 @@ final class ListConsultationAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->twig->render($response, 'listConsultation/user-list.twig');
+        return $this->twig->render($response, 'listCons/listConsultation.twig');
     }
 }

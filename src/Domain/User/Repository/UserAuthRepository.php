@@ -31,20 +31,21 @@ final class UserAuthRepository
      *
      * @return array The user
      */
-    public function findUserByUsername(string $username): array
+    public function findUserByUsername(string $email): array
     {
         $query = $this->queryFactory->newSelect('users');
 
         $query->select([
-            'id',
+            'id_user',
             'password',
             'email',
-            'locale',
+            'role',
+            'name',
+            'surname',
         ]);
 
         $query->andWhere([
-            'username' => $username,
-            'enabled' => 1,
+            'email' => $email,
         ]);
 
         $row = $query->execute()->fetch('assoc');

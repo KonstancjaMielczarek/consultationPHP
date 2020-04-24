@@ -5,171 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/listConsultation.css">
-    <style>
-        .Konst{
-      position: absolute;
-      top: 20px;
-      right: 100px;
-      box-sizing: borderbox;
-      display: inline-block;
-      height: 40px;
-      width: 150px;
-      padding: 10px 20px;
-      border: 1px solid black;
-      border-radius: 50px;
-      background-color: black;
-      text-align: center;
-      color: white;
-      text-decoration: none;
-    }
-
-    .Konst:hover{
-      cursor: point;
-      text-decoration: none;
-    }
-    </style>
 </head>
 
 <body>
-    <a class="Konst" href="http://localhost:8080/calendar">Kalendarz</a>
-    <a class="Konst" style="top: 70px"href="http://localhost:8080/message">Wiadomości</a>
-    <a class="Konst" style="top: 120px" href="/">{{ __('Logout') }}</a><br>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <span class="glyphicon glyphicon-list"></span>Sortable Lists
-                        <div class="pull-right action-buttons">
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle"
-                                    data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-cog" style="margin-right: 0px;"></span>
-                                </button>
-                                <ul class="dropdown-menu slidedown">
-                                    <li><a href="http://www.jquery2dotnet.com"><span
-                                                class="glyphicon glyphicon-pencil"></span>Edit</a></li>
-                                    <li><a href="http://www.jquery2dotnet.com"><span
-                                                class="glyphicon glyphicon-trash"></span>Delete</a></li>
-                                    <li><a href="http://www.jquery2dotnet.com"><span
-                                                class="glyphicon glyphicon-flag"></span>Flag</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox" />
-                                    <label for="checkbox">
-                                        List group item heading
-                                    </label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="http://www.jquery2dotnet.com"><span
-                                            class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="trash"><span
-                                            class="glyphicon glyphicon-trash"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="flag"><span
-                                            class="glyphicon glyphicon-flag"></span></a>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox2" />
-                                    <label for="checkbox2">
-                                        List group item heading 1
-                                    </label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="http://www.jquery2dotnet.com"><span
-                                            class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="trash"><span
-                                            class="glyphicon glyphicon-trash"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="flag"><span
-                                            class="glyphicon glyphicon-flag"></span></a>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox3" />
-                                    <label for="checkbox3">
-                                        List group item heading 2
-                                    </label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="http://www.jquery2dotnet.com"><span
-                                            class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="trash"><span
-                                            class="glyphicon glyphicon-trash"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="flag"><span
-                                            class="glyphicon glyphicon-flag"></span></a>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox4" />
-                                    <label for="checkbox4">
-                                        List group item heading 3
-                                    </label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="http://www.jquery2dotnet.com"><span
-                                            class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="trash"><span
-                                            class="glyphicon glyphicon-trash"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="flag"><span
-                                            class="glyphicon glyphicon-flag"></span></a>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <input type="checkbox" id="checkbox5" />
-                                    <label for="checkbox5">
-                                        List group item heading 4
-                                    </label>
-                                </div>
-                                <div class="pull-right action-buttons">
-                                    <a href="http://www.jquery2dotnet.com"><span
-                                            class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="trash"><span
-                                            class="glyphicon glyphicon-trash"></span></a>
-                                    <a href="http://www.jquery2dotnet.com" class="flag"><span
-                                            class="glyphicon glyphicon-flag"></span></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>
-                                    Total Count <span class="label label-info">25</span></h6>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="pagination pagination-sm pull-right">
-                                    <li class="disabled"><a href="javascript:void(0)">«</a></li>
-                                    <li class="active"><a href="javascript:void(0)">1 <span
-                                                class="sr-only">(current)</span></a></li>
-                                    <li><a href="http://www.jquery2dotnet.com">2</a></li>
-                                    <li><a href="http://www.jquery2dotnet.com">3</a></li>
-                                    <li><a href="http://www.jquery2dotnet.com">4</a></li>
-                                    <li><a href="http://www.jquery2dotnet.com">5</a></li>
-                                    <li><a href="javascript:void(0)">»</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<i class="fas fa-bars"></i>
+  <nav>
+    <ul>
+      <li><a  href="http://localhost:8080/listConsultation">Konsultacje</a></li>
+      <li><a  href="http://localhost:8080/message">Wiadomości</a></li>
+      <li><a  href="/">{{ __('Wyloguj') }}</a></li>
+      <li><i class="fas fa-times"></i></li>
+    </ul>
+  </nav>
+  <main>
+      <table>
+        <tr>
+          <th>Imię</th>
+          <th>Nazwisko</th>
+          <th>data</th>
+          <th>Czas rozpoczęcia</th>
+          <th>Czas zakończenia</th>
+          <th>Email</th>
+          <th>Przedmiot</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+            <td>Konstancja</td>
+            <td>Mielczarek</td>
+            <td>24.04.2020</td>
+            <td>19:00</td>
+            <td>20:00</td>
+            <td>konstancja@gmail.com</td>
+            <td>IAM</td>
+            <td>Oczekiwanie</td>
+        </tr>
+      </table>
+  </main>
+  <script src='js/jquery-3.2.1.min.js'></script>
+  
+  <script src='js/listConsultation.js'></script>
+  <script src='js/calendar.js'></script>
 </body>
 
 </html>

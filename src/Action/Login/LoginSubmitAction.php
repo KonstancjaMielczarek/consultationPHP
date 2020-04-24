@@ -9,6 +9,15 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 
+
+
+
+use App\Utility\Redirector;
+
+
+use Selective\SlimHelper\ResponseHelper;
+
+
 /**
  * Action.
  */
@@ -54,10 +63,10 @@ final class LoginSubmitAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $data = (array)$request->getParsedBody();
-        $username = (string)($data['username'] ?? '');
+        $email = (string)($data['email'] ?? '');
         $password = (string)($data['password'] ?? '');
 
-        $user = $this->auth->authenticate($username, $password);
+        $user = $this->auth->authenticate($email, $password);
 
         $flash = $this->session->getFlashBag();
         $flash->clear();

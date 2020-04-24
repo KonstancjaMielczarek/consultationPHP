@@ -39,9 +39,9 @@ final class UserAuth
      *
      * @return UserSessionData|null
      */
-    public function authenticate(string $username, string $password): ?UserSessionData
+    public function authenticate(string $email, string $password): ?UserSessionData
     {
-        $userRow = $this->repository->findUserByUsername($username);
+        $userRow = $this->repository->findUserByUsername($email);
 
         if (!$userRow) {
             return null;
@@ -53,9 +53,9 @@ final class UserAuth
 
         // Map array to DTO
         $user = new UserSessionData();
-        $user->id = (int)$userRow['id'];
+        $user->id = (int)$userRow['id_user'];
         $user->email = (string)$userRow['email'];
-        $user->locale = (string)$userRow['locale'];
+        $user->role = (string)$userRow['role'];
 
         return $user;
     }
@@ -67,7 +67,7 @@ final class UserAuth
      *
      * @return void
      */
-    public function setUser(?UserSessionData $user): void
+    public function setUser(UserSessionData $user): void
     {
         $this->user = $user;
     }
@@ -86,5 +86,13 @@ final class UserAuth
         }
 
         return $this->user;
+    }
+    public function hasRole()
+    {
+        if ($this->user->role == 'ROLE_ADMIN') {
+            return true;
+        }
+
+        return false;
     }
 }

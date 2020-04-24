@@ -17,13 +17,14 @@ export class UserList {
                 'type': 'POST'
             },
             'columns': [
-                {'data': 'firstName'},
-                {'data': 'lastName'},
-                {'data': 'email'},
-                {'data': 'status'},
-                {'data': 'subject'},
                 {'data': 'date'},
-                {'data': 'time'},
+                {'data': 'start_hour'},
+                {'data': 'end_hour'},
+                {'data': 'name'},
+                {'data': 'surname'},
+                {'data': 'email'},
+                {'data': 'subject'},
+                {'data': 'status'},
 
                 {
                     'orderable': false,

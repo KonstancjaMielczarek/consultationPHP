@@ -42,8 +42,8 @@ class ListConsDataTableRepository implements RepositoryInterface
      */
     public function getTableData(array $params): array
     {
-        $query = $this->queryFactory->newSelect('appointment');
-        $query->select(['appointment.*']);
+        $query = $this->queryFactory->newSelect('CONSULTATION');
+        $query->select(['CONSULTATION.*']);
 
         return $this->dataTable->load($query, $params);
     }

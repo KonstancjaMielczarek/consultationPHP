@@ -1,119 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8"/>
   <title>Kalendarz konsultacji</title>
-  <link rel="stylesheet" href="css/calendar.css">
-  <meta name="description" content="Calendar">
-  <meta name="author" content="Charles Anderson">
-  <style>
-    .Konst{
-      position: absolute;
-      top: 20px;
-      right: 50px;
-      box-sizing: borderbox;
-      display: inline-block;
-      height: 20px;
-      width: 100px;
-      padding: 10px 20px;
-      border: 1px solid black;
-      border-radius: 50px;
-      background-color: black;
-      text-align: center;
-      color: white;
-      text-decoration: none;
-    }
-
-    .Konst:hover{
-      cursor: point;
-    }
-  </style>
+  <meta name="description" content="Calendar"/>
+  <meta name="author" content="Charles Anderson"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></link>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link rel='stylesheet' href='css/calendar.css'/>
 </head>
 
 <body>
-  <a class="Konst" href="http://localhost:8080/listConsultation">Konsultacje</a>
-  <a class="Konst" style="top: 70px"href="http://localhost:8080/message">Wiadomości</a>
-  <a class="Konst" style="top: 120px" href="/">{{ __('Wyloguj') }}</a><br>
-  <div class="content">
-    <div class="calendar-container">
-      <div class="calendar">
-        <div class="year-header">
-          <span class="left-button" id="prev"> &lang; </span>
-          <span class="year" id="label"></span>
-          <span class="right-button" id="next"> &rang; </span>
-        </div>
-        <table class="months-table">
-          <tbody>
-            <tr class="months-row">
-              <td class="month">Jan</td>
-              <td class="month">Feb</td>
-              <td class="month">Mar</td>
-              <td class="month">Apr</td>
-              <td class="month">May</td>
-              <td class="month">Jun</td>
-              <td class="month">Jul</td>
-              <td class="month">Aug</td>
-              <td class="month">Sep</td>
-              <td class="month">Oct</td>
-              <td class="month">Nov</td>
-              <td class="month">Dec</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <table class="days-table">
-          <td class="day">Sun</td>
-          <td class="day">Mon</td>
-          <td class="day">Tue</td>
-          <td class="day">Wed</td>
-          <td class="day">Thu</td>
-          <td class="day">Fri</td>
-          <td class="day">Sat</td>
-        </table>
-        <div class="frame">
-          <table class="dates-table">
-            <tbody class="tbody">
-            </tbody>
-          </table>
-        </div>
-        <button class="button" id="add-button">Dodaj</button>
-      </div>
-    </div>
-    <div class="events-container">
-    </div>
-    <div class="dialog" id="dialog">
-      <h2 class="dialog-header"> Dodaj wydarzenie </h2>
-      <form class="form" id="form" method="POST" action="C:\Users\S\Documents\consultationPHP\src\Action\Calendar\CalendarCreateAction.php">
-        <div class="form-container" align="center">
-          <label class="form-label" id="valueFromMyButton" for="name">Imię</label>
-          <input class="input" type="text" name="firstName" placeholder="{{ __('firstName') }}" id="name" maxlength="30">
-          <label class="form-label" id="valueFromMyButton" for="name">Nazwisko</label>
-          <input class="input" type="text" name="lastName" id="lastName" placeholder="{{ __('lastName') }}" maxlength="30">
-          <label class="form-label" id="valueFromMyButton" for="email">Email</label>
-          <input class="input" type="text" name="email" id="email" maxlength="30" placeholder="{{ __('email') }}">
-          <label class="form-label" id="valueFromMyButton" for="subject">Przedmiot</label>
-          <input class="input" type="text" name="subject" id="subject" maxlength="30" placeholder="{{ __('subject') }}">
-          <label class="form-label" id="valueFromMyButton" for="time">Czas</label>
-          <input class="input" type="time" name="time" id="time" placeholder="{{ __('time') }}">
-
-
-          <input type="button" value="Anuluj" class="button" id="cancel-button">
-
-          <button id="ok-button" class="button" type="submit">{{ __('Zapisz') }}</button>
-        </div>
+<i class="fas fa-bars"></i>
+  <nav>
+    <ul>
+      <li><a  href="http://localhost:8080/listConsultation">Konsultacje</a></li>
+      <li><a  href="http://localhost:8080/message">Wiadomości</a></li>
+      <li><a  href="/">{{ __('Wyloguj') }}</a></li>
+      <li><i class="fas fa-times"></i></li>
+    </ul>
+  </nav>
+  <main>
+    <section class='weeks'>
+      <form>
+        <label class="week" for="name">Wybierz tydzień</label>
+        <select name="weeks">
+          <option value="week1">27.04 - 01.05</option>
+          <option value="week1">04.05 - 08.05</option>
+          <option value="week1">11.05 - 15.05</option>
+          <option value="week1">18.05 - 22.05</option>
+          <option value="week1">25.05 - 29.05</option>
+        </select>
+        <input type="submit" value="Wyświetl"/>
       </form>
-    </div>
-  </div>
-  <!-- Dialog Box-->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
-  </script>
-  <script src="app.js"></script>
-</body>
-<!-- partial -->
-<script src="js/calendar.js"></script>
-
+      <table>
+        <tr>
+          <th class='tableTime'></th>
+          <th>Poniedziałek</th>
+          <th>Wtorek</th>
+          <th>Środa</th>
+          <th>Czwartek</th>
+          <th>Piątek</th>
+        </tr>
+        <tr>
+          <td class='tableTime'>8-9</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class='tableTime'>9-10</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class='tableTime'>10-11</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class='tableTime'>12-13</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class='tableTime'>13-14</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </section>
+    <section class="info"> 
+      <h1>Godziny konsultacji</h1>
+      <p>Poniedziałek 11-14</p>
+      <p>Wtorek 9-11</p>
+    </section>
+    <section class='addConsultation'>
+      <form method="POST">
+        <label class="form-label" id="valueFromMyButton" for="name">Imię</label>
+        <input class="input" type="text" name="name" placeholder="{{ __('surname') }}" id="name" maxlength="30" />
+        <label class="form-label" id="valueFromMyButton" for="surname">Nazwisko</label>
+          <input class="input" type="text" name="surname" id="surname" placeholder="{{ __('surname') }}" maxlength="30" /> 
+          <label class="form-label" id="valueFromMyButton" for="email">Email</label>
+          <input class="input" type="text" name="email" id="email" maxlength="30" placeholder="{{ __('email') }}" />
+          <label class="form-label" id="valueFromMyButton" for="subject">Przedmiot</label>
+          <input class="input" type="text" name="subject" id="subject" maxlength="30" placeholder="{{ __('subject') }}" />
+          <label class="form-label" id="valueFromMyButton" for="time">Czas zaczęcia konsultacji</label>
+          <input class="input" type="time" name="start_hour" id="time" placeholder="{{ __('start_hour') }}" />
+          <label class="form-label" id="valueFromMyButton" for="end_hour">Czas końca konsultacji</label>
+          <input class="input" type="time" name="end_hour" id="end_hour" placeholder="{{ __('end_hour') }}" />
+          <button id="ok-button" type="submit">{{ __('Zapisz') }}</button>
+      </form>
+    </section>
+  </main>
+  <script src='js/calendar.js'></script>
 </body>
 
 </html>

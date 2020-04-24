@@ -8,11 +8,12 @@ namespace App\Domain\User\Data;
 class UserSessionData
 {
     /** @var int */
-    public $id;
+    public $id_user;
 
     /** @var string */
     public $email;
 
     /** @var string */
-    public $locale;
+    public $role;
 }
+

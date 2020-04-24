@@ -20,6 +20,6 @@ require __DIR__ . '/development.php';
 
 // Database
 $settings['db']['host'] = 'localhost';
-$settings['db']['database'] = 'h';
+$settings['db']['database'] = 'phpslim';
 $settings['db']['username'] = 'root';
 $settings['db']['password'] = '';
