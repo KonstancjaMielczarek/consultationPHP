@@ -55,7 +55,8 @@ final class ConsSubmitAction
 
         // Build the HTTP response
         return $this->responder->encodeJson($response, [
-            'cons_id' => $consId,
+            //'cons_id' => $consId,
+            'id_consultation' => $consId,
         ]);
     }
 }

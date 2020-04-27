@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Kalendarz konsultacji</title>
+  <meta name="description" content="Calendar"/>
+  <meta name="author" content="Charles Anderson"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></link>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  <link rel='stylesheet' href='css/schedule.css'/>
+</head>
+
+<body>
+<i class="fas fa-bars"></i>
+  <nav>
+    <ul>
+      <li><a  href="http://localhost:8080/schedule">Terminarz</a></li>
+      <li><a  href="http://localhost:8080/calendar">Zapisz się</a></li>
+      <li><a  href="http://localhost:8080/listConsultation">Konsultacje</a></li>
+      <li><a  href="/">{{ __('Wyloguj') }}</a></li>
+      <li><i class="fas fa-times"></i></li>
+    </ul>
+  </nav>
+  <main>
+    <section class='weeks'>
+      <form>
+        <label class="week" for="name">Wybierz tydzień</label>
+        <select name="weeks">
+          <option value="week1">27.04 - 01.05</option>
+          <option value="week1">04.05 - 08.05</option>
+          <option value="week1">11.05 - 15.05</option>
+          <option value="week1">18.05 - 22.05</option>
+          <option value="week1">25.05 - 29.05</option>
+        </select>
+        <input type="submit" value="Wyświetl"/>
+      </form>
+      <table class='schedule'>
+        <tr>
+          <th class='tableTime'></th>
+          <th>Poniedziałek</th>
+          <th>Wtorek</th>
+          <th>Środa</th>
+          <th>Czwartek</th>
+          <th>Piątek</th>
+        </tr>
+      </table>
+    </section>
+  </main>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src='js/schedule.js'></script>
+</body>
+
+</html>

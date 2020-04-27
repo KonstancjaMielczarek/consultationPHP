@@ -8,6 +8,6 @@ namespace App\Repository;
 final class TableName
 {
     public const USERS = 'users';
-    public const APPOINTMENT = 'appointment';
     public const CONSULTATION = 'consultation';
+    public const DAY = 'day';
 }

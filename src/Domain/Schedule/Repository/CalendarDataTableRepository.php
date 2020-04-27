@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Cons\Repository;
+namespace App\Domain\Schedule\Repository;
 
 use App\Factory\QueryFactory;
 use App\Repository\DataTableRepository;
@@ -42,14 +42,7 @@ class CalendarDataTableRepository implements RepositoryInterface
      */
     public function getTableData(array $params): array
     {
-        $query = $this->queryFactory->newSelect('day');//consultation
-        /*
-        $query->select(['date', 'start_hour', 'end_hour','d.day_name', 'd.start_cons', 'd.end_cons',]);
-        $query->join(['d'=> [
-            'table' => 'day',
-            'condition' => 'd.id_day = id_day_FK',
-        ]]);*/
-        $query = $this->queryFactory->newSelect('day')->select('day_name');
+        $query = $this->queryFactory->newSelect('consultation')->select('*');
 
         return $this->dataTable->load($query, $params);
     }

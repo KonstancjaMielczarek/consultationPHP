@@ -27,23 +27,16 @@ return function (App $app) {
     // })->add(UserAuthMiddleware::class);
 
     $app->get('/listConsultation', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
-    $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);
+    $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
 
-    // $app->group('/listConsultation', function (RouteCollectorProxy $group) {
-    //      $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
-    //      $group->post('/datatable', \App\Action\ListCons\ListConsDataTableAction::class)->setName('user-datatable');
-    //  });
-
-    // $app->get('/calendar', \App\Action\Calendar\CalendarAction::class)->setName('calendar');
-    // $app->post('/calendar', \App\Action\Calendar\CalendarCreateAction::class);
 
     $app->get('/calendar', \App\Action\Calendar2\ConsCreateAction::class)->setName('calendar');
-    $app->post('/calendar', \App\Action\Calendar2\CalendarDateTableAction::class);
-    //$app->post('/calendar', \App\Action\Calendar2\ConsSubmitAction::class);
+    //$app->post('/calendar', \App\Action\Calendar2\CalendarDateTableAction::class);
+    $app->post('/calendar', \App\Action\Calendar2\ConsSubmitAction::class);//formularz konsultacji
 
-    
+    $app->get('/schedule', \App\Action\Schedule\ScheduleAction::class)->setName('schedule');
+    $app->post('/schedule', \App\Action\Schedule\CalendarDateTableAction::class);//harmonogram
 
-    //$app->get('/listConsultation', \App\Action\ListCons\ListConsAction::class)->setName('listConsultation');
     $app->get('/message', \App\Action\Message\MessageAction::class)->setName('message');
 
 };

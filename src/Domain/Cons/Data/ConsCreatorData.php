@@ -73,5 +73,6 @@ final class ConsCreatorData implements DataInterface
         // $this->subject = 'IAM';
         $this->status = 'oczekiwanie';
         $this->id_user_FK = 1;
+        $this->id_day_FK = 1;
     }
 }

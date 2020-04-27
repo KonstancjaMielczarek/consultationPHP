@@ -41,12 +41,6 @@ $(document).ready(function () {
                     </tr>
                     `
                 }
-                // json.forEach((item) => {
-                //     const [date, start_hour, end_hour, email, name, status, subject, surname] = item;
-                //     console.log(`${date}-${start_hour}-${end_hour}-${ email}-${name}-${status}-${subject}-${surname}`);
-                // })
-
-
             } else {
                 console.log(obj.error);
             }

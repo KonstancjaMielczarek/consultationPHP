@@ -1,31 +1,36 @@
 <?php
 
-namespace App\Action\Calendar;
+namespace App\Action\Schedule;
 
+//use App\Domain\Cons\Data\ConsCreatorData;
+use App\Domain\Schedule\Service\CalendarDataTable;
+use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
 
-
 /**
  * Action.
  */
-final class CalendarAction
+final class ScheduleAction
 {
     /**
      * @var Twig
      */
     private $twig;
 
+    private $schedule;
+
     /**
      * The constructor.
      *
      * @param Twig $twig The twig engine
      */
-    public function __construct(Twig $twig)
+    public function __construct(Responder $responder, CalendarDataTable $schedule, Twig $twig)
     {
         $this->twig = $twig;
-
+        $this->schedule = $schedule;
+        $this->responder = $responder;
     }
 
     /**
@@ -38,6 +43,6 @@ final class CalendarAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->twig->render($response, 'calendar/calendar.twig');
+        return $this->twig->render($response, 'schedule/schedule.twig');
     }
 }
