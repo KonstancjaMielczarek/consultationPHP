@@ -17,8 +17,8 @@ return function (App $app) {
     // API endpint
     $app->post('/api/users', \App\Action\User\UserCreateAction::class)->setName('api-user-create');
 
-    $app->get('/', \App\Action\Login\LoginAction::class)->setName('login');
-    $app->post('/', \App\Action\Login\LoginSubmitAction::class);
+    $app->get('/login', \App\Action\Login\LoginAction::class)->setName('login');
+    $app->post('/login', \App\Action\Login\LoginSubmitAction::class);
 
     // Password protected area
     // $app->group('/users', function (RouteCollectorProxy $group) {
@@ -34,8 +34,12 @@ return function (App $app) {
     //$app->post('/calendar', \App\Action\Calendar2\CalendarDateTableAction::class);
     $app->post('/calendar', \App\Action\Calendar2\ConsSubmitAction::class);//formularz konsultacji
 
-    $app->get('/schedule', \App\Action\Schedule\ScheduleAction::class)->setName('schedule');
-    $app->post('/schedule', \App\Action\Schedule\CalendarDateTableAction::class);//harmonogram
+
+    // $app->get('/schedule', \App\Action\Schedule\ScheduleAction::class)->setName('schedule');
+    // $app->post('/schedule', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
+
+    $app->get('/', \App\Action\Schedule\ScheduleAction::class)->setName('schedule');
+    $app->post('/', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
 
     $app->get('/message', \App\Action\Message\MessageAction::class)->setName('message');
 

@@ -7,6 +7,7 @@ use App\Domain\Schedule\Service\CalendarDataTable;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Domain\User\Service\UserAuth;
 use Slim\Views\Twig;
 
 /**
@@ -43,6 +44,10 @@ final class ScheduleAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        return $this->twig->render($response, 'schedule/schedule.twig');
+        //var_dump($session->get('id_user'));
+        // $id_user;
+        // $this->id_user->getUser();
+        return $this->twig->render($response, 'schedule/schedule.twig'
+    );
     }
 }

@@ -53,10 +53,14 @@ final class ConsSubmitAction
         // Invoke the Domain with inputs and retain the result
         $consId = $this->consCreator->createCons($consData);
 
+        /*
         // Build the HTTP response
         return $this->responder->encodeJson($response, [
             //'cons_id' => $consId,
-            'id_consultation' => $consId,
-        ]);
+            //'id_consultation' => $consId,
+            $this->responder->redirect($request, $response, "listConsultation.twig");
+        ]);*/
+        $url = 'listCons';
+        return $this->responder->redirect($request, $response, $url);
     }
 }
