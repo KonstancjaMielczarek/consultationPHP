@@ -88,3 +88,17 @@ main table tr td{
     text-align: center;
     border: 1px solid black;
 }
+
+main table tr td.settings{
+    display: flex;
+    justify-content: space-between;
+}
+
+main table tr td.settings form{
+    background-color: transparent;
+}
+
+.fa-check-square, .fa-times, .fa-edit{
+    font-size: 29px;
+    background-color: transparent;
+}

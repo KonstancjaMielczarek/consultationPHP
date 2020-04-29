@@ -74,7 +74,7 @@ final class LoginSubmitAction
         if ($user) {
             $this->startUserSession($user);
             $flash->set('success', __('Login successfully'));
-            $url = 'calendar';
+            $url = 'listCons';
         } else {
             $flash->set('error', __('Login failed!'));
             $url = 'login';

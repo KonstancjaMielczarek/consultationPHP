@@ -38,6 +38,20 @@ $(document).ready(function () {
                         <td>${json.data[i].email}</td>
                         <td>${json.data[i].subject}</td>
                         <td>${json.data[i].status}</td>
+                        <td class='settings'>
+                            <form method='GET' action='listCons' name='accept'>
+                            <input type='hidden' value=${json.data[i].id_consultation} name='id_cons'>
+                            <button type='submit'><i class="far fa-check-square"></i></button>
+                            </form>
+                            <form method='GET' action='listCons' name='delete'>
+                            <input type='hidden' value=${json.data[i].id_consultation} name='id_cons2'>
+                            <button type='submit'><i class="fas fa-times"></i></button>
+                            </form>
+                            <form method='GET' action='edit' name='edit'>
+                            <input type='hidden' value=${json.data[i].id_consultation} name='id_cons3'>
+                            <button type='submit'><i class="fas fa-edit"></i></button>
+                            </form>
+                        </td>
                     </tr>
                     `
                 }

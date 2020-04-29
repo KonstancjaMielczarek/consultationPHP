@@ -26,8 +26,8 @@ return function (App $app) {
     //     $group->post('/datatable', \App\Action\User\UserListDataTableAction::class)->setName('user-datatable');
     // })->add(UserAuthMiddleware::class);
 
-    $app->get('/listConsultation', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
-    $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
+    // $app->get('/listConsultation', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
+    // $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
 
 
     $app->get('/calendar', \App\Action\Calendar2\ConsCreateAction::class)->setName('calendar');
@@ -43,4 +43,11 @@ return function (App $app) {
 
     $app->get('/message', \App\Action\Message\MessageAction::class)->setName('message');
 
-};
+    $app->group('/listConsultation', function (RouteCollectorProxy $group) {
+        $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
+        })->add(UserAuthMiddleware::class);
+        $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
+
+        $app->get('/mailer', \App\Action\PHPmailer\phpMailerAction::class)->setName('mailer');
+        
+    };
