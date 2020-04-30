@@ -43,11 +43,20 @@ return function (App $app) {
 
     $app->get('/message', \App\Action\Message\MessageAction::class)->setName('message');
 
-    $app->group('/listConsultation', function (RouteCollectorProxy $group) {
-        $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
-        })->add(UserAuthMiddleware::class);
-        $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
+    // $app->group('/listConsultation', function (RouteCollectorProxy $group) {
+    //     $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
+    //     $group->get('/listConsultation{id_consultation}', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
+    // })->add(UserAuthMiddleware::class);
+    //     $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class);//lista konsultacji
 
-        $app->get('/mailer', \App\Action\PHPmailer\phpMailerAction::class)->setName('mailer');
+        $app->group('/listConsultation', function (RouteCollectorProxy $group) {
+            $group->get('', \App\Action\ListCons\ListConsultationAction::class)->setName('listCons');
+            })->add(UserAuthMiddleware::class);
+            $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class); //->setName('cons-datatable');
+
+            // $app->get('/edit', \App\Action\EditCons\EditConsAction::class)->setName('edit');
+            // $app->post('/edit', \App\Action\EditCons\EditSubmitAction::class);
+
+        //$app->get('/mailer', \App\Action\PHPmailer\phpMailerAction::class)->setName('mailer');
         
     };

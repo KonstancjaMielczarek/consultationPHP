@@ -1,6 +1,6 @@
 <?php
+namespace App\Mail\SendMail;
 
-namespace App\Action\PHPmailer;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -48,10 +48,10 @@ require __DIR__.'./../../../vendor/phpmailer/phpmailer/src/SMTP.php';
             $mail->Host       = 'smtp.mailtrap.io';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = 'b175e5ad58f9f5';                     // SMTP username
-            $mail->Password   = 'c67927cc8a3cfe';                               // SMTP password
+            $mail->Password   = 'c67927cc8a3cfe';                              // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-            $mail->Port       = 25;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above   
-
+            $mail->Port       = 25;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        
             //Recipients
             $mail->setFrom('poczta@mailtrap.io', 'Administrator');
             $mail->addAddress($this->getMailAdress( $this->id_consultation ), 'Test');     // Add a recipient
