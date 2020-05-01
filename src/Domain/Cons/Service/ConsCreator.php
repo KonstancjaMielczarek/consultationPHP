@@ -64,7 +64,7 @@ final class ConsCreator implements ServiceInterface
         $validation = $this->consValidator->validateCons($cons);
 
         if ($validation->isFailed()) {
-            $validation->setMessage(__('Please check your input'));
+            $validation->setMessage(__('Sprawdz wprowadzone dane'));
 
             throw new ValidationException($validation);
         }
@@ -73,7 +73,7 @@ final class ConsCreator implements ServiceInterface
         $consId = $this->repository->insertCons($cons);
 
         // Logging
-        $this->logger->info(__('User created successfully: %s', $consId));
+        $this->logger->info(__('Konsultacje stworzone poprawnie: %s', $consId));
 
         return $consId;
     }

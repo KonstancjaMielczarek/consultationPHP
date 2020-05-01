@@ -3,7 +3,7 @@
 namespace App\Domain\Cons\Validator;
 
 use App\Domain\Cons\Data\ConsFewData;//
-use App\Domain\Cons\Data\ConsCreatorData;
+use App\Domain\Cons\Data\ConsCreatorDataUpdate;//
 use Selective\Validation\ValidationResult;
 use App\Repository\QueryFactory;
 /**
@@ -14,7 +14,7 @@ final class ConsValidatorUpdate
     /**
      * Validate.
      *
-     * @param ConsCreatorData $user The user
+     * @param ConsCreatorDataUpdate $user The user
      *
      * @return ValidationResult The validation result
      */
@@ -91,12 +91,12 @@ final class ConsValidatorUpdate
         
         switch(sizeof($id_day)){
             case 1:
-                if (date('w',strtotime(($cons->start_date))) != $id_day[0]['id_day']) {
+                if (date('w',strtotime(($cons->date))) != $id_day[0]['id_day']) {
                     $validation->addError('id_day', __("W tym dniu nie ma konsultacji"));
                 }
             break;
             case 2:
-                if ((date('w',strtotime(($cons->start_date))) != $id_day[0]['id_day']) && (date('w',strtotime(($cons->start_date))) != $id_day[1]['id_day'])) {
+                if ((date('w',strtotime(($cons->date))) != $id_day[0]['id_day']) && (date('w',strtotime(($cons->date))) != $id_day[1]['id_day'])) {
                     $validation->addError('id_day', __("W tym dniu nie ma konsultacji"));
                 }
             break;
@@ -117,12 +117,12 @@ final class ConsValidatorUpdate
         
         switch(sizeof($id_day)){
             case 1:
-                if (date('w',strtotime(($cons->start_date))) != $id_day[0]['id_day']) {
+                if (date('w',strtotime(($cons->date))) != $id_day[0]['id_day']) {
                     $validation->addError('id_day', __("W tym dniu nie ma konsultacji"));
                 }
             break;
             case 2:
-                if ((date('w',strtotime(($cons->start_date))) != $id_day[0]['id_day']) && (date('w',strtotime(($cons->start_date))) != $id_day[1]['id_day'])) {
+                if ((date('w',strtotime(($cons->date))) != $id_day[0]['id_day']) && (date('w',strtotime(($cons->date))) != $id_day[1]['id_day'])) {
                     $validation->addError('id_day', __("W tym dniu nie ma konsultacji"));
                 }
             break;

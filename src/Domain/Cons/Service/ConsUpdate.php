@@ -21,9 +21,9 @@ final class ConsUpdate implements ServiceInterface
     private $repository;
 
     /**
-     * @var ConsValidator
+     * @var ConsValidatorUpdate
      */
-    protected $consValidatorUpdate;
+    protected $consValidator;
 
     /**
      * @var LoggerInterface
@@ -39,7 +39,7 @@ final class ConsUpdate implements ServiceInterface
      */
     public function __construct(
         ConsGeneratorRepositoryUpdate $repository,
-        ConsValidator $consValidator
+        ConsValidatorUpdate $consValidator
         //LoggerFactory $loggerFactory
     ) {
         $this->repository = $repository;
@@ -61,13 +61,13 @@ final class ConsUpdate implements ServiceInterface
     public function createCons(ConsFewData $cons): int
     {
         // Validation
-        $validation = $this->consValidator->validateCons1($cons);
+        // $validation = $this->consValidator->validateCons1($cons);
 
-        if ($validation->isFailed()) {
-            $validation->setMessage(__('Sprawdz wprowadzone dane'));
+        // if ($validation->isFailed()) {
+        //     $validation->setMessage(__('Sprawdz wprowadzone dane'));
 
-            throw new ValidationException($validation);
-        }
+        //     throw new ValidationException($validation);
+        // }
 
         // Insert user
         $this->repository->updateCons($cons);

@@ -47,7 +47,7 @@ $(document).ready(function () {
                             <input type='hidden' value=${json.data[i].id_consultation} name='id_cons2'>
                             <button type='submit'><i class="fas fa-times"></i></button>
                             </form>
-                            <form method='GET' action='mailer' name='edit'>
+                            <form method='GET' action='edit' name='edit'>
                             <input type='hidden' value=${json.data[i].id_consultation} name='id_cons3'>
                             <button type='submit'><i class="fas fa-edit"></i></button>
                             </form>

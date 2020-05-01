@@ -15,7 +15,7 @@ final class ConsCreatorDataUpdate implements DataInterface
     public $id_consultation;
 
     /** @var string|null */
-    public $start_date;
+    public $date;
 
     /** @var string|null */
     public $start_hour;
@@ -52,11 +52,12 @@ final class ConsCreatorDataUpdate implements DataInterface
 
         //dayOfWeek();
         $data = new ArrayReader($array);
-        $pom=strtotime($data->find('start_hour'));
-        $pom=$pom+(int)$data->find('dur')*60;
+        //$pom=strtotime($data->find('start_hour'));
+        //$pom=$pom+(int)$data->find('dur')*60;
         $this->id_consultation = $data->findInt('id_consultation');
-        $this->start_date = date($data->find('start_date'));
-        $this->start_hour = date($data->find('start_hour'));
+        $this->date = date($data->find('date'));
+        $this->start_hour = date($data->find('start_hour'));//time?
+        $this->end_hour = date($data->find('end_hour'));
         $this->subject = $data->find('subject');
         $this->end_hour = date('H:i:s',$pom);
         $this->name = $data->find('name');
@@ -64,6 +65,7 @@ final class ConsCreatorDataUpdate implements DataInterface
         $this->email = $data->findString('email');
         $this->status = "oczekiwanie";//nw
         $this->id_user_FK = 1;
-        $this->id_day_FK = date('w',strtotime($data->find('start_date')));
+        $this->id_day_FK = 1;
+        //$this->id_day_FK = date('w',strtotime($data->find('date')));
     }
 }

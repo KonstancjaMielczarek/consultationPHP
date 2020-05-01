@@ -2,7 +2,7 @@
 
 namespace App\Action\Edit;
 
-use App\Domain\Cons\Data\ConsFewData;//nie ma
+use App\Domain\Cons\Data\ConsFewData;//
 use App\Domain\Cons\Service\ConsUpdate;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
@@ -22,7 +22,7 @@ final class EditAction
     private $responder;
 
     /**
-     * @var ConsCreator//
+     * @var ConsUpdate//
      */
     private $consCreatorUpdate;
 /**
@@ -38,7 +38,7 @@ final class EditAction
      * @param Responder $responder The responder
      * @param UserCreator $userCreator The service
      */
-    public function __construct(Responder $responder, ConsUpdate $consCreatorUpdate, Twig $twig, QueryFactory $queryFactory)
+    public function __construct(Responder $responder, ConsUpdate $consCreatorUpdate, Twig $twig, QueryFactory $queryFactory)//
     {
         $this->twig = $twig;
         $this->responder = $responder;
@@ -58,12 +58,14 @@ final class EditAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
+        
 
         $query = $this->queryFactory->newSelect('consultation')->select([
             'start_hour',
         ])->andWhere(['id_consultation' => $_GET['id_cons3']]);
         $result = $query->execute()->fetch('assoc');
-        $_SESSION["id"]=$_GET['id_cons3'];
+        $_SESSION["id"]=$_GET['id_cons3'];//
+       
         //echo "Wynosi: ", $_SESSION["id"];
 
         return $this->twig->render($response, 'edit/edit.twig');

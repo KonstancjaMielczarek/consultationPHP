@@ -59,14 +59,14 @@ final class EditSubmitAction
 
         $consData = new ConsFewData((array)$request->getParsedBody());
 
-        $start_date = $consData->start_date;
+        $date = $consData->date;
         $start_hour = $consData->start_hour;
         $end_hour = $consData->end_hour;
         $id_consultation = $consData->id_consultation;
         
         $this->sendMail->id_consultation = $id_consultation;
         $this->sendMail->topic = "Zmiana terminów konsultacji";
-        $this->sendMail->content = "Administrator zmienił termin twoich konsultacji na: ".$start_date.". W godzinach: ".$start_hour." - ".$end_hour.". Aby zaakceptować termin, lub odrzucić prośbę o konsultację, prosimy użyć zakładki zmiana terminu na stronie wpisując numer konsultacji: ".$id_consultation;
+        $this->sendMail->content = "Administrator zmienił termin twoich konsultacji na: ".$date.". W godzinach: ".$start_hour." - ".$end_hour.". Aby zaakceptować termin, lub odrzucić prośbę o konsultację, prosimy użyć zakładki zmiana terminu na stronie wpisując numer konsultacji: ".$id_consultation;
         $this->sendMail->send();
 
         // Invoke the Domain with inputs and retain the result

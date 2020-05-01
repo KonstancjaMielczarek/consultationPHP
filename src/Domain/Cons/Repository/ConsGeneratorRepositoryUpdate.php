@@ -29,13 +29,13 @@ class ConsGeneratorRepositoryUpdate implements RepositoryInterface
     /**
      * Insert user row.
      *
-     * @param ConsCreatorData $user The user
+     * @param ConsCreatorDataUpdate $user The user
      *
      * @return int The new ID
      */
     public function updateCons(ConsFewData $cons)
     {
-        $this->queryFactory->newUpdate('consultation',['start_date' =>$cons->start_date,
+        $this->queryFactory->newUpdate('consultation',['date' =>$cons->date,
         'start_hour' =>$cons->start_hour, 
         'end_hour' => $cons->end_hour, 
         'id_day_FK' => $cons->id_day_FK,])->andWhere(['id_consultation' => $_SESSION["id"]])->execute();
