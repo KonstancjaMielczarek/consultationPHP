@@ -35,12 +35,6 @@ final class ConsValidatorUpdate
         $this->queryFactory = $queryFactory;
     }
 
-    // public function dayOfWeek():array
-    // {
-        
-    //     return 
-    // }
-
     public function validateCons(ConsCreatorData $cons): ValidationResult
     {
         $validation = new ValidationResult();
@@ -108,9 +102,6 @@ final class ConsValidatorUpdate
     {
         $validation = new ValidationResult();
 
-        // if (filter_var($cons->email, FILTER_VALIDATE_EMAIL) === false) {
-        //     $validation->addError('email', __('Invalid email address'));
-        // }
 
         $query = $this->queryFactory->newSelect('day')->select('*');
         $id_day= $query->execute()->fetchAll('assoc');

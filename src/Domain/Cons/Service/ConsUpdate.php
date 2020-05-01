@@ -69,7 +69,6 @@ final class ConsUpdate implements ServiceInterface
         //     throw new ValidationException($validation);
         // }
 
-        // Insert user
         $this->repository->updateCons($cons);
 
         // Logging

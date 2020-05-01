@@ -72,13 +72,21 @@ final class ListConsultationAction
             $this->queryFactory->newUpdate('consultation',['status' => 'zaakceptowano'])->andWhere(['id_consultation' => $_GET['id_cons']])->execute();
             $this->sendMail->send();
         }
+        // if(isset($_GET['id_cons2'])){
+        //     $this->sendMail->id_consultation = $_GET['id_cons2'];
+        //     $this->sendMail->topic = "Konsultacje odrzucone";
+        //     $this->sendMail->content = "Wybrany przez Ciebie termin konsultacji został odrzucony przez prowadzącego";
+        //     $this->queryFactory->newDelete('consultation')->andWhere(['id_consultation' => $_GET['id_cons2']])->execute();
+        //     $this->sendMail->send();
+        // }
         if(isset($_GET['id_cons2'])){
             $this->sendMail->id_consultation = $_GET['id_cons2'];
             $this->sendMail->topic = "Konsultacje odrzucone";
-            $this->sendMail->content = "Wybrany przez Ciebie termin konsultacji został odrzucony przez prowadzącego";
+            $this->sendMail->content = "Twoje konsultacje zostały odrzucone przez prowadzącego";
             $this->queryFactory->newDelete('consultation')->andWhere(['id_consultation' => $_GET['id_cons2']])->execute();
             $this->sendMail->send();
         }
+
         return $this->twig->render($response, 'listCons/listConsultation.twig');
     }
 }

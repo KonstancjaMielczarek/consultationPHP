@@ -54,7 +54,7 @@ require __DIR__.'./../../../vendor/phpmailer/phpmailer/src/SMTP.php';
 
             //Recipients
             $mail->setFrom('poczta@mailtrap.io', 'Administrator');
-            $mail->addAddress($this->getMailAdress( $this->id_consultation ), 'Test');     // Add a recipient
+            $mail->addAddress($this->getMailAdress( $this->id_consultation ), 'Pan/Pani');     // Add a recipient
             // $mail->addAddress('ellen@example.com');               // Name is optional
             $mail->addReplyTo('administracjaserwisu@example.com', 'Information');
             // $mail->addCC('cc@example.com');
@@ -73,9 +73,9 @@ require __DIR__.'./../../../vendor/phpmailer/phpmailer/src/SMTP.php';
             $mail->AltBody = $html->getText();
         
             $mail->send();
-            echo 'Wiadomość wysłano';
+            //echo 'Wiadomość wysłano';
         } catch (Exception $e) {
-            echo "Wiadomość nie mogła zostać wysłana. Mailer Error: {$mail->ErrorInfo} ";
+            //echo "Wiadomość nie mogła zostać wysłana. Mailer Error: {$mail->ErrorInfo} ";
         }
     }
 }

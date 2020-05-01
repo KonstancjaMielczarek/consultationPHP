@@ -2,7 +2,6 @@
 
 namespace App\Action\Schedule;
 
-//use App\Domain\Cons\Data\ConsCreatorData;
 use App\Domain\Schedule\Service\CalendarDataTable;
 use App\Responder\Responder;
 use Psr\Http\Message\ResponseInterface;
@@ -44,9 +43,7 @@ final class ScheduleAction
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        //var_dump($session->get('id_user'));
-        // $id_user;
-        // $this->id_user->getUser();
+
         return $this->twig->render($response, 'schedule/schedule.twig'
     );
     }

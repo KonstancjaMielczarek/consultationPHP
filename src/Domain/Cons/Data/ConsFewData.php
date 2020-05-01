@@ -33,16 +33,12 @@ final class ConsFewData implements DataInterface
     public function __construct(array $array = [])
     {
 
-        //dayOfWeek();
+
         $data = new ArrayReader($array);
-        // $pom=strtotime($data->find('start_hour'));
-        // $pom=$pom+(int)$data->find('end_hour');
-        
         $this->id_consultation = $data->findInt('id_consultation');
         $this->date = date($data->find('date'));
         $this->start_hour = date($data->find('start_hour'));
         $this->end_hour = date($data->find('end_hour'));
         $this->id_day_FK = 1;
-        //$this->id_day_FK = date('w',strtotime($data->find('date')));
     }
 }
