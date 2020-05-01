@@ -12,7 +12,7 @@ require __DIR__.'./../../../vendor/phpmailer/phpmailer/src/Exception.php';
 require __DIR__.'./../../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require __DIR__.'./../../../vendor/phpmailer/phpmailer/src/SMTP.php';
 
-    final class SendMail
+    final class phpMailerAction
 {
 
     /**
@@ -73,9 +73,9 @@ require __DIR__.'./../../../vendor/phpmailer/phpmailer/src/SMTP.php';
             $mail->AltBody = $html->getText();
         
             $mail->send();
-            echo 'Message has been sent';
+            echo 'Wiadomość wysłano';
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo} ";
+            echo "Wiadomość nie mogła zostać wysłana. Mailer Error: {$mail->ErrorInfo} ";
         }
     }
 }

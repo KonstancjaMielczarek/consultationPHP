@@ -54,8 +54,8 @@ return function (App $app) {
             })->add(UserAuthMiddleware::class);
             $app->post('/listConsultation', \App\Action\ListCons\ListConsDataTableAction::class); //->setName('cons-datatable');
 
-            // $app->get('/edit', \App\Action\EditCons\EditConsAction::class)->setName('edit');
-            // $app->post('/edit', \App\Action\EditCons\EditSubmitAction::class);
+            $app->get('/edit', \App\Action\Edit\EditAction::class)->setName('edit');
+            $app->post('/edit', \App\Action\Edit\EditSubmitAction::class);
 
         //$app->get('/mailer', \App\Action\PHPmailer\phpMailerAction::class)->setName('mailer');
         

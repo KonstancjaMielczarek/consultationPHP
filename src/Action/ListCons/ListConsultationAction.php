@@ -5,13 +5,13 @@ namespace App\Action\ListCons;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Views\Twig;
-
+use App\Responder\Responder;
 use App\Repository\QueryFactory;
 use App\Repository\DataTableRepository;
 use App\Repository\RepositoryInterface;
 
 
-use App\Action\Mail\SendMail;
+use App\Action\PHPmailer\phpMailerAction;
 use App\Domain\listCons\Service\ListConsDataTable;
 
 
@@ -21,13 +21,17 @@ use App\Domain\listCons\Service\ListConsDataTable;
  */
 final class ListConsultationAction
 {
+        /**
+     * @var Responder
+     */
+    private $responder;
     /**
      * @var Twig
      */
     private $twig;
 
     /**
-     * @var SendMail
+     * @var phpMailerAction
      */
     private $sendMail;
 
@@ -40,9 +44,9 @@ final class ListConsultationAction
      *
      * @param Twig $twig The twig engine
      */
-    public function __construct(Twig $twig, ListConsDataTable $listCons, QueryFactory $queryFactory, DataTableRepository $dataTableRepository, SendMail $sendMail)
+    public function __construct(Responder $responder, Twig $twig, ListConsDataTable $listCons, QueryFactory $queryFactory, DataTableRepository $dataTableRepository, phpMailerAction $sendMail)
     {
-        //$this->response=$response;
+        $this->responder = $responder;
         $this->twig = $twig;
         $this->sendMail = $sendMail;
         $this->queryFactory = $queryFactory;
@@ -64,14 +68,14 @@ final class ListConsultationAction
         if(isset($_GET['id_cons'])){
             $this->sendMail->id_consultation = $_GET['id_cons'];
             $this->sendMail->topic = "Konsultacje zaakceptowane";
-            $this->sendMail->content = "Twoje konsultacje odbędą się w wybranym przez Ciebie terminie";
+            $this->sendMail->content = "Zaakceptowano wybrany przez Ciebie termin konsultacji.";
             $this->queryFactory->newUpdate('consultation',['status' => 'zaakceptowano'])->andWhere(['id_consultation' => $_GET['id_cons']])->execute();
             $this->sendMail->send();
         }
         if(isset($_GET['id_cons2'])){
             $this->sendMail->id_consultation = $_GET['id_cons2'];
             $this->sendMail->topic = "Konsultacje odrzucone";
-            $this->sendMail->content = "Twoje konsultacje zostały odrzucone przez prowadzącego";
+            $this->sendMail->content = "Wybrany przez Ciebie termin konsultacji został odrzucony przez prowadzącego";
             $this->queryFactory->newDelete('consultation')->andWhere(['id_consultation' => $_GET['id_cons2']])->execute();
             $this->sendMail->send();
         }
