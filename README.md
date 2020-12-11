@@ -31,7 +31,7 @@
 ```sh
 $ composer install
 $ composer migrate
-$ php -S localhost: 8080
+$ composer start
 ```
 
 Aplication based on PHPSlim Skeleton:
